@@ -6,8 +6,8 @@
         <title>Soles del piedemonte</title>
 
         {% load staticfiles %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}" />
-        <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}" media="screen"/>
         <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400italic' rel='stylesheet' type='text/css'>
 
     </head>
@@ -132,118 +132,73 @@
     </section>
 
     <section id="nuestrostrabajos" class="slide nuestrostrabajos">
+        
         <h1>Nuestros Trabajos</h1>
-            
-
+        
         <ul class="categorias-nuestrostrabajos fotorama-nav">
-            <li data-show="#fotorama1">Alta costura</li>
-            <li data-show="#fotorama2">Uniformes de trabajo</li>
-            <li data-show="#fotorama3">Trajes para eventos</li>
-            <li data-show="#fotorama4">Buzos de egresados</li>
-            <li data-show="#fotorama5">Bebés y niños</li>
-            <li data-show="#fotorama6">Línea Hogar</li>
+            
+            {% for categoria in categorias %}
+            
+                <li data-show="#fotorama{{forloop.counter}}">{{categoria.nombre}}</li> 
+
+            {% endfor %}
+            
         </ul>
-            <div class="fotorama" 
-                    data-auto="false"></div>
             
-            <!--ALTA COSTURA -->    
-            <div class="fotorama" id="fotorama1"
-                 data-auto="false">                
-                {% for imagen in imagenes %}
-                    {% if imagen.categoria_id_id == 2 %}
-                    <img src="{{MEDIA_URL}}/media/{{imagen.url}}">
-                    {% endif %}                
-                {% endfor %}
-            </div>
+        <div class="fotorama" data-auto="false"></div>
 
-            <!-- UNIFORMES DE TRABAJO -->
-            <div class="fotorama" id="fotorama2"
-                     data-auto="false">
-                    <img src="{{MEDIA_URL}}/media/fotos/camisacocinero (Copiar) (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/lompa (Copiar).png"/>
-            </div>
+        {% for categoria in categorias %}  
+            <div class="fotorama" id="fotorama{{forloop.counter}}" data-auto="false">
 
-            <!-- TRAJES PARA EVENTOS -->
-            <div class="fotorama" id="fotorama3"
-                     data-auto="false">
-                    <img src="{{MEDIA_URL}}/media/fotos/faldarojatras (Copiar) (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/faldarojadelante (Copiar) (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/faldazul2 (Copiar) (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/vestidonena (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/vestidonena2 (Copiar).png"/>
+            {% for imagen in imagenes %}    
+                {% if imagen.categoria_id == categoria.id %}
+                    <img src="{{imagen.imagen_thumbnail.url}}">
+                {% endif %}
+            {% endfor %}    
+            </div>
+        {% endfor %}
     
-            </div>
+        
+    </section>
 
-            <!-- BUZOS DE EGRESADOS -->
-            <div class="fotorama" id="fotorama4"
-                     data-auto="false">
-                    <img src="{{MEDIA_URL}}/media/fotos/sincara (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/buzopromocion (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/buzopromocion2 (Copiar) (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/bordado (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/buzoblanco2 (Copiar).png"/>     
 
-            </div>
-            
-            <!--BEBES Y NIÑOS -->
-            <div class="fotorama" id="fotorama5"
-                     data-auto="false">
-            
-                    <img src="{{MEDIA_URL}}/media/fotos/pantaloncillo (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/vestidosazules (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/falditacorazones (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/faldita (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/buzobebe (Copiar).png"/>    
-    
-
-            </div>
-
-            <!--LINEA HOGAR -->
-            <div class="fotorama" id="fotorama6"
-                     data-auto="false">
-                    <img src="{{MEDIA_URL}}/media/fotos/mantaverde (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/sabanaanimalprint (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/bata (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/toalla (Copiar).png"/>
-                    <img src="{{MEDIA_URL}}/media/fotos/sabanaositos (Copiar).png"/>
+        <!-- Contact -->
+    <section id="contact" class="main style3 secondary">
+        <div class="content container">
+            <header>
+                <h2>"Contacto"</h2>
+                <p>Para reservas o consultas, por favor, complete el formulario de abajo, o envíenos un correo a <a href="mailto:gabrielfprog@gmail.com">info@anayluistango.com.ar</a> o alternativamente a los teléfonos +54 261 4201336 o +54 9 261 156 13 1259</p>
+            </header>
+        <div class="box container small">
                     
+        <!-- Contact Form -->
+        <form method="POST" action="{% url "contact_form" %}">{% csrf_token %}
+                            {{ form.non_field_errors }}
+            <div class="row half">
+                <div class="6u"><input type="text" name="name" placeholder="Nombre"  value="{% if form.name.value %}{{ form.name.value }}{% endif %}" required /><p>{{ form.name.errors }}</p></div>
+
+                <div class="6u"><input type="email" name="email" placeholder="Email" value="{% if form.email.value %}{{ form.email.value }}{% endif %}" required /><p>{{ form.email.errors }}</p></div>
             </div>
+
+            <div class="row half">
+                <div class="12u"><textarea placeholder="Mensaje" rows="6" name="message" required>{% if form.message.value %}{{ form.message.value }}{% endif %}</textarea><p>{{ form.message.errors }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="12u">
+                    <ul class="actions">
+                    <li><input type="submit" value="Enviar Mensaje"/></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+
+        </div>
+        </div>
     </section>
 
-
-    <section id="contacto">
-        <h1>Contacto</h1>
-        <form >
-            <fieldset>
-
-                <table border="0" >
-                
-                <tr>
-                <td><label for="user-name">Nombre:</label></td>
-                <td><input id="user-name" name="user-name" type="text" placeholder="Ingrese su nombre" required></td>
-                </tr>
-                
-                <tr>
-                <td><label for="email">Email:</label></td>
-                <td><input type="email" name="email" placeholder="Ingrese un correo válido" required></td>
-                </tr>
-
-                <tr>
-                <td><label for="tel">Teléfono:</label></td>
-                <td><input type= "tel" name="tel" placeholder= "261 155000000"></td>
-                </tr>
-                <tr>
-                <td valign="top"><label for="com">Comentario:</label></td>
-                <td><textarea name="com" rows="20" cols="100"></textarea></td>
-                </tr>
-                <tr>
-                <td><input type="submit" value="Enviar"></td>
-                <td><input type="reset" value="Cancelar"></td>
-                </tr>
-            
-            </fieldset>
-        </form>            
-    </section>
+            <section>                   
+    
     <div class="vcard" >
         <p>
             Soles de Piedemonte
@@ -260,30 +215,18 @@
     <footer>
         Soles de Piedemonte 261230444 solesdepiedemonte@gmail.com
     </footer>
-    
+    </section>
+
+
+
+
+
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
     <link  href="http://fotorama.s3.amazonaws.com/4.6.2/fotorama.css" rel="stylesheet"> 
     <script src="http://fotorama.s3.amazonaws.com/4.6.2/fotorama.js"></script> 
     <script src="{% static 'js/funciones.js' %}"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $(function () {
-            $('.fotorama').fotorama();
-            
-            $(document).ready(function(){
-                $(".fotorama").hide();
-            });
-
-            $(".fotorama-nav li").click(function(){
-                var show = $(this).attr("data-show");
-                $(".fotorama").hide();
-                $(show).fadeIn();
-            })
-        });
-        })
-    </script>
     </body>
 </html>
 
