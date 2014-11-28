@@ -9,5 +9,5 @@ from django.template import RequestContext
 def inicio(request):
     imagenes = Imagen.objects.all()
     categorias = Categoria.objects.all()
-    return render_to_response('index.html',{'imagenes':imagenes, 'categorias':categorias})
+    return render_to_response('index.html',{'imagenes':imagenes, 'categorias':categorias}, RequestContext(request))
 

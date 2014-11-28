@@ -4,6 +4,8 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 
+import os
+
 admin.autodiscover()
 
 # Texto para poner al final del <title> de cada página.
@@ -24,4 +26,15 @@ urlpatterns = patterns('',
     url(r'^$','productos.views.inicio'),
     url(r'^contacto/', include('contact_form.urls')),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT,}),
+    url(r'^static/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_ROOT,}),
+
+    url(r'^img/(?P<path>.*)$', 'django.views.static.serve',
+       {'document_root': os.path.join(settings.STATIC_ROOT, 'img')}),
+    url(r'^css/(?P<path>.*)$', 'django.views.static.serve',
+       {'document_root': os.path.join(settings.STATIC_ROOT, 'css')}),
+    url(r'^fotos/(?P<path>.*)$', 'django.views.static.serve',
+       {'document_root': os.path.join(settings.STATIC_ROOT, 'fotos')}),
+    url(r'^js/(?P<path>.*)$', 'django.views.static.serve',
+       {'document_root': os.path.join(settings.STATIC_ROOT, 'js')}),
+
      )

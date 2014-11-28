@@ -1,0 +1,6 @@
+Has recibido una consulta de la Web Soles del Pie de Monte.
+
+Nombre: {{ name }}
+Email: {{ email }}
+Consulta: {{ message }}
+

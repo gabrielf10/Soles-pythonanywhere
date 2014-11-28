@@ -23,6 +23,11 @@ SECRET_KEY = 'k4!&xcqdfr9o6b6t84snckip-6tpwko$-s-)h-@tmw8_yfi)_t'
 DEBUG = True
 
 
+ADMINS = (
+    (u'Gabriel Fernandez', 'gabrielfprog@gmail.com'),
+)
+
+MANAGERS = ADMINS
 
 TEMPLATE_DEBUG = True
 
@@ -91,13 +96,14 @@ TEMPLATE_DIRS = (
     )
 
 STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'static')
-MEDIA_URL = 'http://127.0.0.1:8000/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
 
 
-STATICFILES_DIRS = (
-os.path.join(BASE_DIR,'static'),
-)
+#STATICFILES_DIRS = (
+#os.path.join(BASE_DIR,'static'),
+#)
 #agregar 
 #MEDIRA_URL = '/media/'
 #EMAIL

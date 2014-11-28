@@ -6,20 +6,20 @@
         <title>Soles del piedemonte</title>
 
         {% load staticfiles %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/normalize.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="/css/estilo.css" media="screen"/>
         <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400italic' rel='stylesheet' type='text/css'>
 
     </head>
 
     <header>
         <div class="marcagrande" align=center>
-            <img src="{{MEDIA_URL}}/media/img/marcagrande.png" alt="imagen_de_la_marca_grande" >
+            <img src="/img/marcagrande.png" alt="imagen_de_la_marca_grande" >
         </div>
         
         <div class="containerlittle">
                 <ul class="menu-little">
-                    <img src="{{MEDIA_URL}}/media/img/marcagrande.png" alt="imagen_de_la_marca_grande">
+                    <img src="/img/marcagrande.png" alt="imagen_de_la_marca_grande">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#nuestrahistoria">Nuestra Historia</a></li>
                     <li><a href="#nuestrostrabajos">Nuestros Trabajos</a></li>
@@ -124,9 +124,9 @@
         </ul>
 
         <div class="fotoshistoria">
-        <img src="{{MEDIA_URL}}/media/fotos/adriana.jpg" alt="Adriana expositora"border="0" height="150" width="200"/>
-        <img src="{{MEDIA_URL}}/media/fotos/adrianaconreina.jpg" alt="Adriana con reina"border="0" height="150" width="200"/>
-        <img src="{{MEDIA_URL}}/media/fotos/adrianaconsr.jpg" alt="Intendente"border="0" height="150" width="200"/>
+        <img src="/img/adriana.jpg" alt="Adriana expositora"border="0" height="150" width="200"/>
+        <img src="/img/adrianaconreina.jpg" alt="Adriana con reina"border="0" height="150" width="200"/>
+        <img src="/img/adrianaconsr.jpg" alt="Intendente"border="0" height="150" width="200"/>
         </div>
 
     </section>
@@ -162,17 +162,17 @@
     </section>
 
 
-        <!-- Contact -->
-    <section id="contact" class="main style3 secondary">
-        <div class="content container">
-            <header>
-                <h2>"Contacto"</h2>
-                <p>Para reservas o consultas, por favor, complete el formulario de abajo, o envíenos un correo a <a href="mailto:gabrielfprog@gmail.com">info@anayluistango.com.ar</a> o alternativamente a los teléfonos +54 261 4201336 o +54 9 261 156 13 1259</p>
+    <!-- Contacto -->
+    <section id="Formulario">
+        <div class="contenedor">
+                <h1>"Contacto"</h2>
+                <p>Para realizar sus consultas complete el formulario de abajo o comuníquese al teléfono +54-261-4201336</p>
             </header>
         <div class="box container small">
                     
         <!-- Contact Form -->
-        <form method="POST" action="{% url "contact_form" %}">{% csrf_token %}
+        <form method="POST" action="{% url "contact_form" %}">
+            {% csrf_token %}
                             {{ form.non_field_errors }}
             <div class="row half">
                 <div class="6u"><input type="text" name="name" placeholder="Nombre"  value="{% if form.name.value %}{{ form.name.value }}{% endif %}" required /><p>{{ form.name.errors }}</p></div>
@@ -186,9 +186,9 @@
             </div>
             <div class="row">
                 <div class="12u">
-                    <ul class="actions">
-                    <li><input type="submit" value="Enviar Mensaje"/></li>
-                    </ul>
+                    
+                    <input type="submit" value="Enviar Consulta"/>
+                    
                 </div>
             </div>
         </form>
@@ -225,7 +225,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
     <link  href="http://fotorama.s3.amazonaws.com/4.6.2/fotorama.css" rel="stylesheet"> 
     <script src="http://fotorama.s3.amazonaws.com/4.6.2/fotorama.js"></script> 
-    <script src="{% static 'js/funciones.js' %}"></script>
+    <script src="/js/funciones.js"></script>
 
     </body>
 </html>
