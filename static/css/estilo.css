@@ -6,8 +6,9 @@
 body {
 background: #FFF;
 font-family: "Open Sans", Helvetica, Arial, sans-serif;
+color: #554446;
 font-size: 14px;
-width: 70%; 
+width: 80%; 
 margin-top: 0;
 margin-right: auto;
 margin-bottom: 0;
@@ -17,13 +18,15 @@ margin-left: auto;
 h1, h2, h3, h4 {
 font-family: 'Droid Serif', serif;
 font-style: italic;
-font-weight: normal;
+font-weight: bold;
 text-decoration: none;
 color:#8C1B14;
 }
 
 h1{
 font-size: 21px;
+padding-left: 70px;
+font-weight: bold;
 }
 
 h2{
@@ -43,29 +46,39 @@ padding: 150px 0px 0px 0px;
 }
 
 .marcagrande img{
-height: 250px;
+height: 259px;
+padding-left: 20px;
 }
 
-
-.menu-little {
-position: absolute;
-color:#FFF;
+.containerlittle{
+position: fixed;
+top: 0; 
 display: inline-block;
 background-color: #FFF;
-font-size: 14px;
+font-size: 16px;
 height: 60px;
 margin-top: 0px;
-position: fixed;
-padding-top: 15px;
+padding: 15px 20px 10px 20px;
 text-align: right;
-top: 0;
-width: 72%;
+width: 77%;
+z-index: 100;
+}
+
+.menu-little {
+color:#FFF;
+display: inline-block;
+font-size: 16px;
+height: 60px;
+margin-top: 0px;
+padding: 15px 20px 10px 20px;
+text-align: right;
+margin-right: 10px;
 }
 
 .menu-little li{
 display: inline-block;
-padding-right: 10px;
-padding-top: 15px;
+padding-right: 20px;
+padding-top: 20px;
 }
 
 .menu-little li a{
@@ -76,10 +89,15 @@ font-weight: bold;
 }
 
 .menu-little img {
-height:55px;
+height:64px;
 position: absolute;
 left: 0px;
 top:10px;
+padding-left: 65px;
+}
+
+.menu .selected {
+    border-bottom: 2px solid #8C1B14;
 }
 
 header{
@@ -87,11 +105,7 @@ background-size: 100%;
 width: 100%;
 height: 420px;
 }
-#header_contacto{
-    width: 800px;
-    height: 100px;
-    text-align: center;
-}
+
 .containerbig {
 clear:both;
 overflow:hidden;
@@ -99,10 +113,11 @@ width:100%;
 text-align: center;
 width: 100%;
 height: 250px;
+padding-top: 10px;
 }
 
 .logo {
-width: "350px"; 
+width: "380px"; 
 height: "250px";
 }
 
@@ -115,7 +130,7 @@ text-align: center;
 
 .menu-big li{
 display: inline-block;  
-padding:0px;
+padding: 0px 20px 0px 0px;  
 }
 
 .menu-big li a{
@@ -126,27 +141,52 @@ font-weight: bold;
 margin:0 auto;
 padding:0;
 position:relative;
-padding: 0px 20px 0px 0px;  
 }
 
+.tablecero{
+width: 100%;
+height: 10px;
+clear: both;
+}
+
+.tablecero .color{
+background-color:#FAD7C1;
+width: 10px;    
+}
+
+.tablecero .vacio{
+width: 10px;
+background-color:#FFF;
+}
+
+#contacto{
+background-color:#FAD7C1;
+background-size: 600px;
+width: 100%;
+height: 800px;
+padding-top: 90px;
+}
+
+
 #inicio{
-background-color:#FBD8C1;
-width: 95.7%;
-height: 530px;      
-padding: 50px;
+background-color:#FAD7C1; 
+width: 100%;
+height: 630px;      
 text-align: justify;
 }
 
 .descripcion{
 width: 85%;
-height: 150px;
+height: 100px;
 font-family: 'Droid Serif', serif;
 font-style: italic;
-font-weight: normal;
 text-decoration: none;
 color:#8C1B14;
 font-size: 18px;
 text-align: justify;
+padding-bottom: 90px;
+padding-top: 80px;
+font-weight: bold;
 }
 
 .descripcion p{
@@ -155,7 +195,7 @@ margin-left: 150px;
 }
 
 .origenes{
-padding: 30px;
+padding: 0px 40px 0px 40px;
 }
 
 .origenes h2{
@@ -164,35 +204,16 @@ text-align: left;
 
 .origenizquierdo{
 float: left;
-width: 48%;
+width: 45%;
 margin-right: 0px;
-padding: 0px;
-
+padding: 0px 0px 0px 30px;
 }
+
 .origenderecho{
 float: right;
-width: 48%;
-padding: 0px;
+width: 45%;
+padding: 0px 30px 0px 0px;
 }
-
-
-.mision{
-position: absolute;
-right: 0px;
-width: 30%;
-font-size: 16px;
-padding: 250px;
-}
-
-.vision{
-position: absolute; 
-left: 20px;
-float: right;
-width: 30%;
-font-size: 16px;
-padding: 250px 30px 20px 225px;
-}
-
 
 .info-inicio{
 text-decoration: none;
@@ -202,35 +223,202 @@ padding:0;
 font-family:"Open Sans";
 }
 
-.info-inicio li{
-text-decoration: none;
+.tableuno{
+width: 100%;
+height: 10px;
+clear: both;
+}
+
+.tableuno .color{
+background-color:#FFF9C7;
+width: 10px;    
+}
+
+.tableuno .vacio{
+width: 10px;
+background-color:#FAD7C1;   
 }
 
 #nuestrahistoria{
-background-color:#FEF5B2; 
+background-color:#FFF9C7; 
 width: 100%;
-height: 800px;
-padding: 20px 30px ;
+height: 835px;
+display: inline-block;
+padding-top: 90px;
+}
+
+.fotoshistoria{
+    float: left;
+    padding-left: 50px;
+    width: 28%;
+}
+
+.fotoshistoria img{
+width: 265px;
+height: 205px;
+display: block;
+margin: 15px;
+float: left;
+border-radius: 3px;
+}
+
+.titulosformacion{
+text-align: left;
+}
+
+.formacionizquierda{
+    float: left;
+    padding-left: 25px;
+    text-align: justify;
+    width: 28%;
+}
+
+.formacionderecha{
+    display: inline-block;
+    float: right;
+    padding-right: 70px;
+    text-align: left;
+    width: 27%;
+}
+
+.participaciones{
+width: 53%;
+height: 185px;
+float: right;
+background-color:#FDE6B4;
+border-radius: 3px;
+margin-right: 70px;
+padding: 20px 30px 0px 30px;
+text-align: justify;
+}
+
+.tabledos{
+width: 100%;
+height: 10px;
+clear: both;
+}
+
+.tabledos .color{
+background-color:#FDE6B4;
+width: 10px;    
+}
+
+.tabledos .vacio{
+width: 10px;
+background-color:#FFF9C7;    
 }
 
 #nuestrostrabajos{
-background-color:#FCDDA8;
+background-color:#FDE6B4; 
 width: 100%;
-height: 800px;
-padding: 20px 30px ;
+height: 640px;
+padding-top: 90px;
+}
+
+.titulonuestrostrabajos{
+width: 25%;
+}
+
+.menufotorama{
+width: 25%;
+float: left;
+padding-left: 35px;
+padding-top: 30px;
+z-index: 1;
+}
+
+.menufotorama ul li{
+color:#8C1B14;  
+font-weight: bold;
+padding: 12px 0px 12px 10px;
+cursor: pointer;
+width: 177px;
+opacity: 0.8;
+//border: solid;
+//border-width: 0px 0px 1px 0px;
+}
+
+.subrayado{
+border-bottom: 3px solid #FEF1CD;
+width: 187px;    
+}
+
+.menufotorama ul li:hover{
+    background: #FEF1CD;
+    opacity: 1;
+    border-radius: 3px;
+    color: #8C1B14;
+    width: 177px;
+}    
+
+.menufotorama ul{
+ list-style: none;
+}
+
+.menufotorama .selected {
+background: #FEF1CD;
+border-radius: 3px;  
+ opacity:1;
 }
 
 .fotorama{
-width: 70%;
-height: 400px;
-border-radius: 30px;
+width: 63%;
+height: 450px;
+border-radius: 3px;
 float: right;
+background-color: #FFF;
+margin-right: 70px;
+margin-top: 40px;
+z-index: 1;
+border: solid #FEF1CD; 
+border-width: 3px;
+}
+
+.fotorama img .flechaizq{
+    width: 20px;
+}
+
+.fotorama img .fleder{
+    width: 20px;
+}
+
+
+.fotorama__wrap--css3 .fotorama__arr:not(:focus), .fotorama__wrap--css3 .fotorama__fullscreen-icon:not(:focus), .fotorama__wrap--css3 .fotorama__video-close:not(:focus), .fotorama__wrap--css3 .fotorama__video-play:not(:focus){
+border: solid #FFF9C7; 
+border-width: 3px;
+
+}
+
+.tabletres{
+width: 100%;
+height: 10px;
+clear: both;
+}
+
+.tabletres .color{
+background-color:#FAD7C1;
+width: 10px;    
+}
+
+.tabletres .vacio{
+width: 10px;
+background-color:#FDE6B4;  
 }
 
 #contacto{
-background-color:#FBD8C1;
+background-color:#FAD7C1;
 background-size: 600px;
 width: 100%;
 height: 800px;
-padding: 20px 30px ;
+padding-top: 90px;
+}
+
+.contactoizquierdo{
+    float: left;
+    width: 40%;
+}
+
+.contactoderecho .vcard{
+    float: right;
+    width: 40%;
 }
