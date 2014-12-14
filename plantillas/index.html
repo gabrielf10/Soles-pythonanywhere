@@ -8,13 +8,14 @@
         {% load staticfiles %}
         <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
         <link rel="stylesheet" type="text/css" href="/css/estilo.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="/css/fotorama.css"/>
         <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400italic' rel='stylesheet' type='text/css'>
 
     </head>
 
     <header>
         <div class="marcagrande" align=center>
-            <img src="img/marcagrande.png" alt="imagen_de_la_marca_grande" >
+            <img class="imgFadeIn" src="img/marcagrande.png" alt="imagen_de_la_marca_grande" >
         </div>
         
         <div class="containerlittle">
@@ -173,9 +174,9 @@
         
     <div id="contenedor-historia">
             <div class="fotoshistoria">
-                <img src="fotos Soles/adriana.jpg" alt="Adriana expositora"border="0"/>
-                <img src="fotos Soles/adrianaconreina.jpg" alt="Adriana con reina"border="0"/>
-                <img src="fotos Soles/adrianaconsr.jpg" alt="Intendente"border="0"/>
+                <img src="{{ MEDIA_URL }}img/adriana.jpg" alt="Adriana expositora"border="0"/>
+                <img src="{{ MEDIA_URL }}img/adrianaconreina.jpg" alt="Adriana con reina"border="0"/>
+                <img src="{{ MEDIA_URL }}img/adrianaconsr.jpg" alt="Intendente"border="0"/>
             </div>
 
     <!--cambié el nombre de la clase del div y agregué otro div abajo para poder manejarlos con css-->
@@ -358,11 +359,10 @@
 
 
     <!-- Contacto -->
-    <section id="Formulario">
+    <section id="contacto">
+        <h1>"Contacto"</h1>
         <div class="contenedor">
-                <h1>"Contacto"</h2>
-                <p>Para realizar sus consultas complete el formulario de abajo o comuníquese al teléfono +54-261-4201336</p>
-            </header>
+                <p>Para realizar sus consultas complete el formulario o comuníquese a nuestros teléfonos, le contestaremos a la brevedad</p>            
         <div class="box container small">
                     
         <!-- Contact Form -->
@@ -370,13 +370,20 @@
             {% csrf_token %}
                             {{ form.non_field_errors }}
             <div class="row half">
-                <div class="6u"><input type="text" name="name" placeholder="Nombre"  value="{% if form.name.value %}{{ form.name.value }}{% endif %}" required /><p>{{ form.name.errors }}</p></div>
+                <div class="text">Nombre</div>
+                <div class="6u"><input type="text" name="name" size="35" value="{% if form.name.value %}{{ form.name.value }}{% endif %}" required /><p>{{ form.name.errors }}</p></div>
+                
+                <div class="text">Email</div>
+                <div class="6u"><input type="email" name="email" value="{% if form.email.value %}{{ form.email.value }}{% endif %}" required /><p>{{ form.email.errors }}</p></div>
 
-                <div class="6u"><input type="email" name="email" placeholder="Email" value="{% if form.email.value %}{{ form.email.value }}{% endif %}" required /><p>{{ form.email.errors }}</p></div>
+                <div class="text">Teléfono</div>
+                <div class="6u"><input type="tel" value size="35" name="tel" value="" required /><p></p></div>
+
             </div>
 
             <div class="row half">
-                <div class="12u"><textarea placeholder="Mensaje" rows="6" name="message" required>{% if form.message.value %}{{ form.message.value }}{% endif %}</textarea><p>{{ form.message.errors }}</p>
+              <div class="text">Su consulta</div>
+                <div class="12u"><textarea rows="6" name="message" required>{% if form.message.value %}{{ form.message.value }}{% endif %}</textarea><p>{{ form.message.errors }}</p>
                 </div>
             </div>
             <div class="row">
@@ -390,35 +397,31 @@
          <!--Probando -->   
         </div>
         </div>
-    </section>
-
-            <section>                   
     
     <div class="vcard" >
-        <p>
+        <h2>
             Soles de Piedemonte
-        </p>
+        </h2>
         <p class="telvc">
             Teléfono: +54296149832489342
         </p>
         <p class="emailvc">
             Email: solesdepiedemonte@gmail.com
         </p>
-        <a class="location url" href="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d214331.5185097047!2d-68.81377905!3d-32.92644824999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sar!4v1411529009965">
-        </a>
+        <p class="">
+            Dirección Calle Libertad 2500 M17 C13 Barrio Andino, La Favorita, Ciudad.
+        </p>
+
     </div>
-    <footer>
-        Soles de Piedemonte 261230444 solesdepiedemonte@gmail.com
-    </footer>
     </section>
 
+    
 
 
 
 
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
-    <link  href="http://fotorama.s3.amazonaws.com/4.6.2/fotorama.css" rel="stylesheet"> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>     
     <script src="http://fotorama.s3.amazonaws.com/4.6.2/fotorama.js"></script> 
     <script src="/js/funciones.js"></script>
 

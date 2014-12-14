@@ -192,6 +192,7 @@ font-weight: bold;
 .descripcion p{
 text-align: center;
 margin-left: 150px;
+padding-top: 15px;
 }
 
 .origenes{
@@ -311,7 +312,7 @@ background-color:#FFF9C7;
 #nuestrostrabajos{
 background-color:#FDE6B4; 
 width: 100%;
-height: 640px;
+height: 620px;
 padding-top: 90px;
 }
 
@@ -323,7 +324,7 @@ width: 25%;
 width: 25%;
 float: left;
 padding-left: 35px;
-padding-top: 30px;
+padding-top: 13px;
 z-index: 1;
 }
 
@@ -368,7 +369,7 @@ border-radius: 3px;
 float: right;
 background-color: #FFF;
 margin-right: 70px;
-margin-top: 40px;
+margin-top: 25px;
 z-index: 1;
 border: solid #FEF1CD; 
 border-width: 3px;
@@ -384,8 +385,6 @@ border-width: 3px;
 
 
 .fotorama__wrap--css3 .fotorama__arr:not(:focus), .fotorama__wrap--css3 .fotorama__fullscreen-icon:not(:focus), .fotorama__wrap--css3 .fotorama__video-close:not(:focus), .fotorama__wrap--css3 .fotorama__video-play:not(:focus){
-border: solid #FFF9C7; 
-border-width: 3px;
 
 }
 
@@ -413,12 +412,118 @@ height: 800px;
 padding-top: 90px;
 }
 
-.contactoizquierdo{
+.contenedor{
     float: left;
-    width: 40%;
+    width: 46%;
+    padding-left: 70px;
 }
 
-.contactoderecho .vcard{
+.text{
+    float: left;
+    width: 18%;
+    text-align: right;
+    padding: 20px 10px 10px 18px;
+    color: #8C1B14;
+    font-weight: bold;
+}
+
+.indicacion{
+    text-align: justify;
+    width: 454px;
+}
+
+input[type="text"] {
+border: solid #E8918C; 
+border-width: 1.3px;
+box-shadow: inset 0 1px 1px #FFF9C7;
+transition: border linear 0.2s, box-shadow linear 0.2s;
+height: 30px;
+width: 302px;
+border-radius: 3px;
+float: none;
+margin-top: 15px;
+margin-left: 15px;
+color: #554446;
+padding-left: 10px;
+}
+
+input[type="text"]:hover{
+box-shadow: red;
+}
+
+input[type="email"] {
+border: solid #E8918C; 
+border-width: 1.3px;
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+height: 30px;
+width: 302px;
+border-radius: 3px;
+float: none;
+margin-top: 15px;
+margin-left: 15px;
+color: #554446;
+padding-left: 10px;
+}
+
+input[type="tel"] {
+border: solid #E8918C; 
+border-width: 1.3px;
+box-shadow: inset 0 1px 1px #FFF9C7;
+transition: border linear 0.2s, box-shadow linear 0.2s;
+height: 30px;
+width: 302px;
+border-radius: 3px;
+float: none;
+margin-top: 15px;
+margin-left: 15px;
+color: #554446;
+padding-left: 10px;
+}
+
+textarea{
+border: solid #E8918C; 
+border-width: 1.3px;
+box-shadow: inset 0 1px 1px #FFF9C7;
+transition: border linear 0.2s, box-shadow linear 0.2s;
+height: 300px;
+width: 302px;
+border-radius: 3px;
+margin-top: 15px;
+margin-left: 15px;
+color: #554446;
+padding-left: 10px;
+}
+
+input[type="submit"]{
+background: #CA352B;
+color: #FFF;
+font-weight: bold;
+border-radius: 3px;
+margin-left: 131px;
+height: 35px;
+width: 150px;
+margin-top: 10px;
+border: 1px solid #A51207;
+background-image: -webkit-linear-gradient(top, #CA352B, #A51207);
+background-image: -moz-linear-gradient(top, #CA352B, #A51207);
+background-image: -ms-linear-gradient(top, #CA352B, #A51207);
+background-image: -o-linear-gradient(top, #CA352B, #A51207);
+background-image: linear-gradient(to bottom, #CA352B, #A51207);
+}
+
+input[type="submit"]:hover{
+border-color: #BD2F25;
+background: #8C1B14; 
+border-radius: 3px;  
+background-image: -webkit-linear-gradient(top, #8C1B14, #BD2F25);
+background-image: -moz-linear-gradient(top, #8C1B14, #BD2F25);
+background-image: -ms-linear-gradient(top, #8C1B14, #BD2F25);
+background-image: -o-linear-gradient(top, #8C1B14, #BD2F25);
+background-image: linear-gradient(to bottom, #8C1B14, #BD2F25);
+}
+
+
+.vcard{
     float: right;
-    width: 40%;
+    width: 46%;
 }
