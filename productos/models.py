@@ -16,7 +16,7 @@ class Imagen(models.Model):
     nombre = models.CharField(max_length=50)
     url = models.ImageField(upload_to='img', verbose_name='Imágen')
     imagen_thumbnail = ImageSpecField(source='url',
-                                      processors=[ResizeToFit(400, 400)],
+                                      processors=[ResizeToFit(700, 700)],
                                       format='PNG',
                                       options={'quality': 80})
     imagen_miniatura = ImageSpecField(source='url',
