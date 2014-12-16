@@ -1,4 +1,7 @@
 $('.containerlittle').hide(0).delay(0);
+function probando(){
+    location.reload();
+}
 
 $(window).scroll(function (event) {
     var position_inicio = $('#inicio').position();

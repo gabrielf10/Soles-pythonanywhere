@@ -24,7 +24,7 @@ DEBUG = True
 
 
 ADMINS = (
-    (u'Gabriel Fernandez', 'gabrielfprog@gmail.com'),
+    (u'Adriana Gomez', 'solesdelpiedemonte@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'productos',
     'imagekit',
     'contact_form',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,7 +90,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,'plantillas'),
@@ -109,8 +113,8 @@ MEDIA_URL = '/media/'
 #EMAIL
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'gabrielfprog@gmail.com'
-EMAIL_HOST_PASSWORD = '4481199gg'
+EMAIL_HOST_USER = 'solesdelpiedemonte@gmail.com'
+EMAIL_HOST_PASSWORD = 'soles1234'
 EMAIL_PORT = 587
 
 try:

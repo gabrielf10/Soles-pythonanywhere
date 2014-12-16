@@ -31,6 +31,3 @@ class Imagen(models.Model):
         return self.nombre
     class Meta:
         verbose_name_plural='Imágenes'
-
-
-
