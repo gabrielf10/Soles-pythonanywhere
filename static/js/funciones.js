@@ -1,7 +1,50 @@
-$('.containerlittle').hide(0).delay(0);
-function probando(){
-    location.reload();
-}
+//oculta menu pequeño
+$(function() {
+     $('.containerlittle').hide(0).delay(0);
+});
+
+//valida formulario
+$("#bEnviar").click(function(){
+    //expresion regular para email
+    var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
+    //expresion regular solo letras
+    var expr1 = /^[a-zA-Z_áéíóúñ\s]*$/;
+    //expresion regular para telefono
+    var expr2 = /^\+?\d{1,3}?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+    var nombre = $("#name").val();
+    var email = $("#email").val();
+    var tel = $("#tel").val();
+    //valida nombre
+                if(nombre == "" || !expr1.test(nombre)){
+                    $("#mensaje1").fadeIn("slow");
+                    $( "#name" ).focus();
+                    return false;
+                }
+                else{
+                    $("#mensaje1").fadeOut();
+
+                if(email == "" || !expr.test(email)){
+                        $("#mensaje2").fadeIn("slow");
+                        $( "#email" ).focus();
+                        return false;
+                    }
+                    else{
+                        $("#mensaje2").fadeOut();
+
+                if(tel == "" || !expr2.test(tel)){
+                        $("#mensaje3").fadeIn("slow");
+                        $( "#tel" ).focus();
+                        return false;
+                    }
+                    else{
+                        $("#mensaje3").fadeOut();
+                    }
+                    }
+                }
+    //valida email
+ 
+            });
+
 
 $(window).scroll(function (event) {
     var position_inicio = $('#inicio').position();

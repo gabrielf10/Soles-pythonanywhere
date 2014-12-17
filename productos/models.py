@@ -25,7 +25,7 @@ class Imagen(models.Model):
                                       options={'quality': 80})
     descripcion = models.TextField()
     categoria = models.ForeignKey(Categoria , verbose_name='Categoría')
-    #no esta funcionando el display
+   
 
     def __unicode__(self):
         return self.nombre

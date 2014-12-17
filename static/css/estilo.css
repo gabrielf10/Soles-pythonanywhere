@@ -167,7 +167,20 @@ height: 800px;
 padding-top: 90px;
 }
 
-
+ .errores{
+            -webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background: red;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            display: none;
+            font-size: 14px;
+            margin-top: -75px;
+            margin-left: 180px;
+            padding: 5px;
+            position: absolute;
+        }
 #inicio{
 background-color:#FAD7C1; 
 width: 100%;
